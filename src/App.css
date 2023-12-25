@@ -1,38 +1,40 @@
-.App {
+.hero-section {
+  background-image: url("/public/herosection-photo.png");
+  background-size: cover;
+  background-position: center;
   text-align: center;
+  padding: 100px 20px;
+}
+.text-color {
+  color: rgb(97, 33, 33);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 2.5em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+p {
+  font-size: 1.2em;
 }
 
-.App-link {
-  color: #61dafb;
+.cta-button {
+  background-color: rgb(97, 33, 33);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.card-img-top {
+  width: 100%;
+  height: 30vw;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
   }
 }
