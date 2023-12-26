@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import StarRating from "./StarRating";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
@@ -46,27 +47,47 @@ function Button({ children }) {
   return <button className="col btn btn-dark cta-button">{children}</button>;
 }
 function NavBar() {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navbarClass = scrolling ? "bg-scroll" : "bg-transparent text-color";
+
   return (
-    <nav className="navbar navbar-expand-sm fixed-top container">
-      <div className="container-fluid">
+    <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
+      <div className="container">
         <div className="nav-item">
-          <a className="nav-link text-color" href="#">
+          <a className="nav-link" href="#">
             <strong>AGROMAN</strong>
           </a>
         </div>
         <ul className="navbar-nav justify-content-end">
           <li className="nav-item">
-            <a className="nav-link text-color" href="#">
+            <a className={`nav-link ${navbarClass}`} href="#">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-color" href="#">
+            <a className={`nav-link ${navbarClass}`} href="#">
               About
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link text-color">
+            <a href="#" className={`nav-link ${navbarClass}`}>
               Contact
             </a>
           </li>
@@ -364,6 +385,7 @@ function Team({ team }) {
 }
 
 function SubscribeForm() {
+  const [userRating, setUserRating] = useState("");
   return (
     <form
       className="text-color text-center container card my-5"
@@ -391,6 +413,13 @@ function SubscribeForm() {
         <button type="submit" className="btn btn-dark col cta-button">
           Subscribe
         </button>
+
+        <div className="mt-5">
+          <p>Give us a review</p>
+          <>
+            <StarRating maxRating={5} size={24} onSetRating={setUserRating} />
+          </>
+        </div>
       </div>
     </form>
   );
