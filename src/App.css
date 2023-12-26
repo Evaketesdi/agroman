@@ -25,6 +25,10 @@ p {
 .cta-button {
   background-color: rgb(97, 33, 33);
 }
+.bg-scroll {
+  background-color: rgb(97, 33, 33);
+  color: white;
+}
 
 .card-img-top {
   width: 100%;
