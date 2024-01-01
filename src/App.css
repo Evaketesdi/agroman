@@ -36,6 +36,31 @@ p {
   object-fit: cover;
 }
 
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.content-box {
+  grid-column: 2 / -1;
+  line-height: 1.6;
+}
+
+.open {
+  border-top: 4px solid rgb(97, 33, 33);
+}
+
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
