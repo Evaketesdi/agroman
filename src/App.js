@@ -6,15 +6,32 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const blog = [
   {
     title: "Crop protection",
-    text: "Weeds rob plants of water, sunlight and nutrients, while harmful insects and diseases can devastate crops, threating food production.",
+    text: "Weeds rob plants of water, sunlight and nutrients, while harmful insects and diseases can devastate crops, threating food production. Growers have always relied on a host of tools to fight these ever-present threats that account for up to 30 percent of the world's annual crop loss. Without the use of reliable crop protection solutions, those losses could be much higher – and threaten the stability of the world's food supply.",
   },
   {
     title: "Products",
-    text: "There’s no one-size-fits-all when it comes to farming. As a result, every solution must be tailored to meet the needs of an individual farmer in a specific field. ",
+    text: "There’s no one-size-fits-all when it comes to farming. As a result, every solution must be tailored to meet the needs of an individual farmer in a specific field. This requires innovation and new ideas. Not only to grow enough but to grow better for our planet and its people. At Agroman, we’re driving research in biology, biotechnology, crop protection, and data science, allowing us to deliver tailored solutions to farmers faster than ever before. We’re using the resources at our fingertips to discover the science that’s yet to come. ",
   },
   {
     title: "Seeds & Traits",
-    text: "In a world where bigger tends to mean better, some of the most important building blocks of civilization are often no larger than a few millimeters in size: seeds. These tiny organisms form the foundation of agriculture and hold the keys to delivering the food, fuel and fiber needed to sustain a growing world population. ",
+    text: "In a world where bigger tends to mean better, some of the most important building blocks of civilization are often no larger than a few millimeters in size: seeds. These tiny organisms form the foundation of agriculture and hold the keys to delivering the food, fuel and fiber needed to sustain a growing world population. Through traditional and advanced breeding techniques, as well as research in biotechnology, we’re developing seeds and traits that provide farmers with new solutions. By making use of the natural genetic diversity within each crop family, we’re building crops that combat environmental challenges — like pests, disease, and drought — while providing more choice for consumers.",
+  },
+];
+
+const calculator = [
+  {
+    title:
+      " 1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?",
+    input1: "Enter the amount of product expressed in grams or ml:",
+    input2: "Enter recommended concentration (%) of the spray solution:",
+    result: "Amount of Water needed",
+  },
+  {
+    title:
+      "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?",
+    input1: "Enter the amount of solution expressed in liters:",
+    input2: "Enter the recommended concentration of the spray solution:",
+    result: "The required amount of product is",
   },
 ];
 
@@ -51,15 +68,19 @@ const App = () => {
       <NavBar />
       <HeroSection />
       <Accordion data={blog} />
-      <DilutionCalculator />
+      <DilutionCalculator data={calculator} />
       <AboutUs />
       <SubscribeForm />
       <Footer />
     </div>
   );
 };
-function Button({ children }) {
-  return <button className="col btn btn-dark cta-button">{children}</button>;
+function Button({ children, onClick }) {
+  return (
+    <button type="button" className="btn btn-dark cta-button" onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 function NavBar() {
   const [scrolling, setScrolling] = useState(false);
@@ -168,9 +189,7 @@ function AccordionItem({ title, text }) {
   );
 }
 
-function DilutionCalculator() {
-  const [productAmunt, setProductAmount] = useState("");
-  const [concentration, setConcentration] = useState("");
+function DilutionCalculator({ data }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleToggle() {
@@ -178,8 +197,104 @@ function DilutionCalculator() {
   }
 
   return (
+    <div className="container my-5">
+      <div className="card text-color">
+        <h2 className="card-header">Dilution calculator</h2>
+        <p
+          onClick={handleToggle}
+          className="container p-3"
+          style={{ cursor: "pointer" }}
+        >
+          Check it out 👇
+        </p>
+        {isOpen && (
+          <div>
+            {data.map((el) => (
+              <CalculatorItem
+                title={el.title}
+                input1={el.input1}
+                input2={el.input2}
+                result={el.result}
+                key={el.title}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function CalculatorItem({ title, input1, input2, result }) {
+  const [value1, setValue1] = useState("");
+  const [value2, setValue2] = useState("");
+  const [resultValue, setResultValue] = useState(null);
+
+  function handleCalculate() {
+    const calculatedResult = parseFloat(value1) / parseFloat(value2);
+    setResultValue(calculatedResult);
+  }
+
+  return (
+    <form className="text-color accordion my-3 px-3">
+      <div>
+        <p>{title}</p>
+        <div className="row container px-5 my-3">
+          <label className="col">{input1}</label>
+          <input
+            className="col"
+            value={value1}
+            onChange={(e) => setValue1(e.target.value)}
+          />
+        </div>
+      </div>
+      <div>
+        <div className="row container px-5 my-3">
+          <label className="col">{input2}</label>
+          <input
+            className="col"
+            value={value2}
+            onChange={(e) => setValue2(e.target.value)}
+          />
+        </div>
+        <Button onClick={handleCalculate}>Calculate</Button>
+        {resultValue !== null && (
+          <div className="my-3">
+            <p>
+              {result}: {resultValue}
+            </p>
+          </div>
+        )}
+      </div>
+    </form>
+  );
+}
+
+/*function DilutionCalculator() {
+  const [amountOfProduct, setAmountOfProduct] = useState("");
+  const [concentration, setConcentration] = useState("");
+  const [result, setResult] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+
+    // Perform your calculation based on user inputs
+    const waterAmount =
+      amountOfProduct / (concentration / 1000) - amountOfProduct;
+
+    // Update the result state
+    setResult(waterAmount);
+    console.log(result);
+  };
+
+  function handleToggle() {
+    setIsOpen((isOpen) => !isOpen);
+  }
+
+  return (
     <div id="accordion" className="container text-color my-5">
-      <div className="card text-color" onClick={handleToggle}>
+      <div className="card text-color">
         <h2 className="card-header">Dilution calculator</h2>
         <div className="card-text">
           <a
@@ -187,7 +302,7 @@ function DilutionCalculator() {
             data-bs-toggle="collapse"
             href="#collapseCalc"
           >
-            <p>Check it out 👇</p>
+            <p onClick={handleToggle}>Check it out 👇</p>
           </a>
         </div>
         {isOpen && (
@@ -197,7 +312,7 @@ function DilutionCalculator() {
             data-bs-parent="#accordion"
           >
             <div className="container row card-body text-color">
-              <form className="container col my-3">
+              <div className="container col my-3">
                 <div className="row">
                   <div className="col">
                     1. Know the required amount of product and the recommended
@@ -210,32 +325,35 @@ function DilutionCalculator() {
                     Enter the amount of product expressed in grams or ml:
                   </label>
                   <input
-                    type="text"
-                    value={productAmunt}
-                    onChange={(e) => setProductAmount(Number(e.target.value))}
+                    type="number"
+                    value={amountOfProduct}
+                    onChange={(e) => setAmountOfProduct(e.target.value)}
                     className="col"
                   ></input>
                 </div>
                 <div className="row my-3">
                   <label className="col form-label">
-                    Enter the recommended concentration of the spray solution:
+                    Enter recommended concentration (%) of the spray solution:
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     value={concentration}
-                    onChange={(e) => setConcentration(Number(e.target.value))}
+                    onChange={(e) => setConcentration(e.target.value)}
                     className="col"
                   ></input>
                 </div>
                 <div className="row my-3">
                   <div className="col"></div>
-                  <Button>Calculate</Button>
+                  <Button onClick={(e) => handleButtonClick(e)}>
+                    Calculate
+                  </Button>
                 </div>
                 <div className="row my-3">
-                  <div className="col">The required amount of water is:</div>
-                  <input type="text" className="col"></input>
+                  <div className="col">
+                    <p>Amount of Water needed: {result} liters</p>
+                  </div>
                 </div>
-              </form>
+              </div>
               <div className="col-1"></div>
               <form className="container col my-3">
                 <div className="row">
@@ -272,7 +390,7 @@ function DilutionCalculator() {
       </div>
     </div>
   );
-}
+}*/
 
 function AboutUs() {
   const team = ourTeam;
