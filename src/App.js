@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import StarRating from "./StarRating";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import MediaQuery from "react-responsive";
 
 const blog = [
   {
@@ -31,7 +32,7 @@ const calculator = [
       "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?",
     input1: "Enter the amount of solution expressed in liters:",
     input2: "Enter the recommended concentration of the spray solution:",
-    result: "The required amount of product is",
+    result: "Required amount of product",
   },
 ];
 
@@ -84,6 +85,11 @@ function Button({ children, onClick }) {
 }
 function NavBar() {
   const [scrolling, setScrolling] = useState(false);
+  const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuVisibility((prevVisibility) => !prevVisibility);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,39 +110,82 @@ function NavBar() {
   const navbarClass = scrolling ? "bg-scroll" : "bg-transparent text-color";
 
   return (
-    <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
+    <nav className={`navbar navbar-expand-md ${navbarClass} fixed-top`}>
       <div className="container">
-        <div className="nav-item">
-          <a className="nav-link" href="#">
+        <MediaQuery minWidth={768}>
+          <nav>
+            {
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <a className={`nav-link ${navbarClass}`} href="#home">
+                    Home
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className={`nav-link ${navbarClass}`} href="#blog">
+                    Blog
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className={`nav-link ${navbarClass}`} href="#about">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#contact" className={`nav-link ${navbarClass}`}>
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            }
+          </nav>
+          <div className="nav-item">
             <strong>AGROMAN</strong>
-          </a>
-        </div>
-        <ul className="navbar-nav justify-content-end">
-          <li className="nav-item">
-            <a className={`nav-link ${navbarClass}`} href="#">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className={`nav-link ${navbarClass}`} href="#">
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className={`nav-link ${navbarClass}`}>
-              Contact
-            </a>
-          </li>
-        </ul>
+          </div>
+        </MediaQuery>
       </div>
+      <MediaQuery maxWidth={767}>
+        <nav>
+          <button
+            onClick={toggleMobileMenu}
+            className="btn btn-dark cta-button"
+          >
+            Menu
+          </button>
+          {isMobileMenuVisible && (
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className={`nav-link ${navbarClass}`} href="#home">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className={`nav-link ${navbarClass}`} href="#blog">
+                  Blog
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className={`nav-link ${navbarClass}`} href="#about">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#contact" className={`nav-link ${navbarClass}`}>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          )}
+        </nav>
+      </MediaQuery>
     </nav>
   );
 }
 
 function HeroSection() {
   return (
-    <div className="hero-section text-color">
-      <div className="hero-content">
+    <div id="home" className="hero-section text-color">
+      <div className="hero-content col-lg-6 col-md-8 col-sm-11">
         <h1>
           <strong>
             HARVEST YOUR LAND'S POTENTIAL WITH PREMIUM AGRICULTURAL SOLUTIONS
@@ -159,7 +208,7 @@ function HeroSection() {
 
 function Accordion({ data }) {
   return (
-    <div className="accordion container my-5">
+    <div id="blog" className="accordion container my-5">
       {data.map((el) => (
         <AccordionItem title={el.title} text={el.text} key={el.title} />
       ))}
@@ -208,7 +257,7 @@ function DilutionCalculator({ data }) {
           Check it out 👇
         </p>
         {isOpen && (
-          <div>
+          <div className="row">
             {data.map((el) => (
               <CalculatorItem
                 title={el.title}
@@ -236,35 +285,40 @@ function CalculatorItem({ title, input1, input2, result }) {
   }
 
   return (
-    <form className="text-color accordion my-3 px-3">
-      <div>
-        <p>{title}</p>
-        <div className="row container px-5 my-3">
-          <label className="col">{input1}</label>
-          <input
-            className="col"
-            value={value1}
-            onChange={(e) => setValue1(e.target.value)}
-          />
-        </div>
-      </div>
-      <div>
-        <div className="row container px-5 my-3">
-          <label className="col">{input2}</label>
-          <input
-            className="col"
-            value={value2}
-            onChange={(e) => setValue2(e.target.value)}
-          />
-        </div>
-        <Button onClick={handleCalculate}>Calculate</Button>
-        {resultValue !== null && (
-          <div className="my-3">
-            <p>
-              {result}: {resultValue}
-            </p>
+    <form className="col-lg-6 text-color my-3 px-3">
+      <div className="container">
+        <div>
+          <p>{title}</p>
+          <div className="row mx-2 my-3">
+            <label className="col">{input1}</label>
+            <input
+              className="col"
+              value={value1}
+              onChange={(e) => setValue1(e.target.value)}
+            />
           </div>
-        )}
+        </div>
+        <div>
+          <div className="row mx-2 my-3">
+            <label className="col">{input2}</label>
+            <input
+              className="col"
+              value={value2}
+              onChange={(e) => setValue2(e.target.value)}
+            />
+          </div>
+          <div className="row">
+            <div className="col-md-9 mx-2 my-3">
+              <p>
+                {result}:{" "}
+                {resultValue !== null && <span>{resultValue} liters</span>}
+              </p>
+            </div>
+            <div className="col mx-2 my-3">
+              <Button onClick={handleCalculate}>Calculate</Button>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   );
@@ -407,7 +461,7 @@ function AboutUs() {
 }
 function Team({ team }) {
   return (
-    <div className="col">
+    <div id="about" className="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div className="card">
         <img className="card-img-top" src={team.image} alt={team.name}></img>
         <div className="card-body text-color">
@@ -427,55 +481,54 @@ function Team({ team }) {
 function SubscribeForm() {
   const [userRating, setUserRating] = useState("");
   return (
-    <form
-      className="text-color text-center container card my-5"
-      style={{ width: "35%" }}
-    >
-      <h4 className="card-body">
-        <strong>STAY INFORMED AND INSPIRED - SUBSCRIBE NOW</strong>
-      </h4>
-      <p className="card-body">
-        Our newsletter is a valuable resource for staying informed and inspired
-        on your agricultural journey. Don't miss out – subscribe now and reap
-        the benefits of being part of our growing family.
-      </p>
-      <div className="row card-body">
-        <div className="col">
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Enter email"
-            name="email"
-          />
-        </div>
-        <button type="submit" className="btn btn-dark col cta-button">
-          Subscribe
-        </button>
+    <div id="contact" className="row">
+      <form className="col-lg-5 col-md-8 col-sm-12 text-color text-center container card my-5">
+        <h4 className="card-body">
+          <strong>STAY INFORMED AND INSPIRED - SUBSCRIBE NOW</strong>
+        </h4>
+        <p className="card-body">
+          Our newsletter is a valuable resource for staying informed and
+          inspired on your agricultural journey. Don't miss out – subscribe now
+          and reap the benefits of being part of our growing family.
+        </p>
+        <div className="row card-body">
+          <div className="col">
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+            />
+          </div>
+          <button type="submit" className="btn btn-dark col cta-button">
+            Subscribe
+          </button>
 
-        <div className="mt-5">
-          <p>Give us a review</p>
-          <>
-            <StarRating maxRating={5} size={24} onSetRating={setUserRating} />
-          </>
+          <div className="mt-5">
+            <p>Give us a review</p>
+            <>
+              <StarRating maxRating={5} size={24} onSetRating={setUserRating} />
+            </>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
 function Footer() {
   return (
-    <footer className="container my-5 text-color text-center row">
-      <div className="col text-center">
+    <footer className="container m-5 text-color text-center row">
+      <div className="col">
         <strong>AGROMAN</strong>
       </div>
-      <div className="col text-center">
+      <div className="col">
         <p>You can find us in Sighisoara, Romania</p>
         <p className="lead">2023 Copyright: Agroman</p>
         <p className="lead">All rights reserved</p>
       </div>
-      <div className="col text-center">
+      <div className="col">
         <p>
           <strong>Get connected with us</strong>
         </p>

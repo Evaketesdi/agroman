@@ -32,8 +32,8 @@ p {
 
 .card-img-top {
   width: 100%;
-  height: 30vw;
-  object-fit: cover;
+  max-height: 30vw;
+  object-fit: contain;
 }
 
 .accordion {
