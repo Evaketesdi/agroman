@@ -22,7 +22,7 @@ const blog = [
 const calculator = [
   {
     title:
-      " 1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?",
+      "1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?",
     input1: "Enter the amount of product expressed in grams or ml:",
     input2: "Enter recommended concentration (%) of the spray solution:",
     result: "Amount of Water needed",
@@ -280,8 +280,19 @@ function CalculatorItem({ title, input1, input2, result }) {
   const [resultValue, setResultValue] = useState(null);
 
   function handleCalculate() {
-    const calculatedResult = parseFloat(value1) / parseFloat(value2);
-    setResultValue(calculatedResult);
+    if (
+      title ===
+      "1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?"
+    ) {
+      const calculatedResult1 = parseFloat(value1) / parseFloat(value2);
+      setResultValue(calculatedResult1);
+    } else if (
+      title ===
+      "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?"
+    ) {
+      const calculatedResult2 = parseFloat(value1) * parseFloat(value2);
+      setResultValue(calculatedResult2);
+    }
   }
 
   return (
@@ -311,7 +322,11 @@ function CalculatorItem({ title, input1, input2, result }) {
             <div className="col-md-9 mx-2 my-3">
               <p>
                 {result}:{" "}
-                {resultValue !== null && <span>{resultValue} liters</span>}
+                {resultValue !== null && (
+                  <span>
+                    <strong>{resultValue} liters</strong>
+                  </span>
+                )}
               </p>
             </div>
             <div className="col mx-2 my-3">
