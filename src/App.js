@@ -25,14 +25,14 @@ const calculator = [
       "1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?",
     input1: "Enter the amount of product expressed in grams or ml:",
     input2: "Enter recommended concentration (%) of the spray solution:",
-    result: "Amount of Water needed",
+    result: "The amount of Water needed is (liters)",
   },
   {
     title:
       "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?",
     input1: "Enter the amount of solution expressed in liters:",
-    input2: "Enter the recommended concentration of the spray solution:",
-    result: "Required amount of product",
+    input2: "Enter recommended concentration (%) of the spray solution:",
+    result: "The required amount of product is (g/ml)",
   },
 ];
 
@@ -145,7 +145,7 @@ function NavBar() {
         </MediaQuery>
       </div>
       <MediaQuery maxWidth={767}>
-        <nav>
+        <nav className="bg-scroll">
           <button
             onClick={toggleMobileMenu}
             className="btn btn-dark cta-button"
@@ -154,23 +154,23 @@ function NavBar() {
           </button>
           {isMobileMenuVisible && (
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className={`nav-link ${navbarClass}`} href="#home">
+              <li className="nav-item ">
+                <a className="nav-link bg-scroll" href="#home">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className={`nav-link ${navbarClass}`} href="#blog">
+                <a className="nav-link bg-scroll" href="#blog">
                   Blog
                 </a>
               </li>
               <li className="nav-item">
-                <a className={`nav-link ${navbarClass}`} href="#about">
+                <a className="nav-link bg-scroll" href="#about">
                   About
                 </a>
               </li>
               <li className="nav-item">
-                <a href="#contact" className={`nav-link ${navbarClass}`}>
+                <a href="#contact" className="nav-link bg-scroll">
                   Contact
                 </a>
               </li>
@@ -284,13 +284,13 @@ function CalculatorItem({ title, input1, input2, result }) {
       title ===
       "1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?"
     ) {
-      const calculatedResult1 = parseFloat(value1) / parseFloat(value2);
+      const calculatedResult1 = parseFloat(value1) / parseFloat(value2) / 10;
       setResultValue(calculatedResult1);
     } else if (
       title ===
       "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?"
     ) {
-      const calculatedResult2 = parseFloat(value1) * parseFloat(value2);
+      const calculatedResult2 = parseFloat(value1) * parseFloat(value2) * 10;
       setResultValue(calculatedResult2);
     }
   }
@@ -324,7 +324,7 @@ function CalculatorItem({ title, input1, input2, result }) {
                 {result}:{" "}
                 {resultValue !== null && (
                   <span>
-                    <strong>{resultValue} liters</strong>
+                    <strong>{resultValue}</strong>
                   </span>
                 )}
               </p>
