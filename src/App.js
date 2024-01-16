@@ -40,26 +40,29 @@ const ourTeam = [
   {
     id: 123456,
     image: "/images/peter.jpg",
-    name: "Szappanyos Petru",
+    name: "Peter Doe",
     function: "CEO & Founder",
-    description: "Some text that describes me lorem ipsum ipsum lorem.",
-    email: "jane@example.com",
+    description:
+      "With his professional team, he offers help and support to all farmers.",
+    email: "peter@example.com",
   },
   {
     id: 123457,
     image: "/images/catalin.jpg",
-    name: "Stoia Catalin",
+    name: "Mike Johnson",
     function: "Agronomist Engineer",
-    description: "Some text that describes me lorem ipsum ipsum lorem.",
+    description:
+      "Our expert in agriculture will answer all your questions and concerns.",
     email: "mike@example.com",
   },
   {
     id: 123458,
     image: "/images/eva.jpg",
-    name: "Ketesdi Eva",
+    name: "Jane Doe",
     function: "Customer Service Associate",
-    description: "Some text that describes me lorem ipsum ipsum lorem.",
-    email: "john@example.com",
+    description:
+      "Contact our customer support if you want to know more about our services.",
+    email: "jane@example.com",
   },
 ];
 
@@ -339,128 +342,6 @@ function CalculatorItem({ title, input1, input2, result }) {
   );
 }
 
-/*function DilutionCalculator() {
-  const [amountOfProduct, setAmountOfProduct] = useState("");
-  const [concentration, setConcentration] = useState("");
-  const [result, setResult] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleButtonClick = (e) => {
-    e.preventDefault();
-
-    // Perform your calculation based on user inputs
-    const waterAmount =
-      amountOfProduct / (concentration / 1000) - amountOfProduct;
-
-    // Update the result state
-    setResult(waterAmount);
-    console.log(result);
-  };
-
-  function handleToggle() {
-    setIsOpen((isOpen) => !isOpen);
-  }
-
-  return (
-    <div id="accordion" className="container text-color my-5">
-      <div className="card text-color">
-        <h2 className="card-header">Dilution calculator</h2>
-        <div className="card-text">
-          <a
-            className="btn text-color"
-            data-bs-toggle="collapse"
-            href="#collapseCalc"
-          >
-            <p onClick={handleToggle}>Check it out 👇</p>
-          </a>
-        </div>
-        {isOpen && (
-          <div
-            id="collapseCalc"
-            className="collapse show"
-            data-bs-parent="#accordion"
-          >
-            <div className="container row card-body text-color">
-              <div className="container col my-3">
-                <div className="row">
-                  <div className="col">
-                    1. Know the required amount of product and the recommended
-                    concentration of the spraying solution. What amount of water
-                    should you use to prepare the spray solution?
-                  </div>
-                </div>
-                <div className="row my-3">
-                  <label className="col form-label">
-                    Enter the amount of product expressed in grams or ml:
-                  </label>
-                  <input
-                    type="number"
-                    value={amountOfProduct}
-                    onChange={(e) => setAmountOfProduct(e.target.value)}
-                    className="col"
-                  ></input>
-                </div>
-                <div className="row my-3">
-                  <label className="col form-label">
-                    Enter recommended concentration (%) of the spray solution:
-                  </label>
-                  <input
-                    type="number"
-                    value={concentration}
-                    onChange={(e) => setConcentration(e.target.value)}
-                    className="col"
-                  ></input>
-                </div>
-                <div className="row my-3">
-                  <div className="col"></div>
-                  <Button onClick={(e) => handleButtonClick(e)}>
-                    Calculate
-                  </Button>
-                </div>
-                <div className="row my-3">
-                  <div className="col">
-                    <p>Amount of Water needed: {result} liters</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-1"></div>
-              <form className="container col my-3">
-                <div className="row">
-                  <div className="col">
-                    2. Know the amount of solution required (the volume of the
-                    spray pump) and the recommended concentration. What amount
-                    of product should you use to prepare the spray solution?
-                  </div>
-                </div>
-                <div className="row my-3">
-                  <label className="col form-label">
-                    Enter the amount of solution expressed in liters:
-                  </label>
-                  <input type="text" className="col"></input>
-                </div>
-                <div className="row my-3">
-                  <label className="col form-label">
-                    Enter the recommended concentration of the spray solution:
-                  </label>
-                  <input type="text" className="col"></input>
-                </div>
-                <div className="row my-3">
-                  <div className="col"></div>
-                  <Button>Calculate</Button>
-                </div>
-                <div className="row my-3">
-                  <div className="col">The required amount of product is:</div>
-                  <input className="col"></input>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}*/
-
 function AboutUs() {
   const team = ourTeam;
   return (
@@ -474,6 +355,7 @@ function AboutUs() {
     </div>
   );
 }
+
 function Team({ team }) {
   return (
     <div id="about" className="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -521,10 +403,25 @@ function SubscribeForm() {
           </button>
 
           <div className="mt-5">
-            <p>Give us a review</p>
-            <>
-              <StarRating maxRating={5} size={24} onSetRating={setUserRating} />
-            </>
+            {userRating > 0 ? (
+              <>
+                <p>Thank you for your review!</p>
+                <StarRating
+                  maxRating={5}
+                  size={24}
+                  onSetRating={setUserRating}
+                />
+              </>
+            ) : (
+              <>
+                <p>Give us a review</p>
+                <StarRating
+                  maxRating={5}
+                  size={24}
+                  onSetRating={setUserRating}
+                />
+              </>
+            )}
           </div>
         </div>
       </form>
@@ -537,16 +434,10 @@ function Footer() {
     <footer className="container m-5 text-color text-center row">
       <div className="col">
         <strong>AGROMAN</strong>
-      </div>
-      <div className="col">
-        <p>You can find us in Sighisoara, Romania</p>
+        <p>You can find us in Romania</p>
+        <strong>Get connected with us</strong>
         <p className="lead">2023 Copyright: Agroman</p>
         <p className="lead">All rights reserved</p>
-      </div>
-      <div className="col">
-        <p>
-          <strong>Get connected with us</strong>
-        </p>
       </div>
     </footer>
   );
