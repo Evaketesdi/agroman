@@ -8,14 +8,17 @@ const blog = [
   {
     title: "Crop protection",
     text: "Weeds rob plants of water, sunlight and nutrients, while harmful insects and diseases can devastate crops, threating food production. Growers have always relied on a host of tools to fight these ever-present threats that account for up to 30 percent of the world's annual crop loss. Without the use of reliable crop protection solutions, those losses could be much higher – and threaten the stability of the world's food supply.",
+    //image: "/images/cereal.jpg",
   },
   {
     title: "Products",
     text: "There’s no one-size-fits-all when it comes to farming. As a result, every solution must be tailored to meet the needs of an individual farmer in a specific field. This requires innovation and new ideas. Not only to grow enough but to grow better for our planet and its people. At Agroman, we’re driving research in biology, biotechnology, crop protection, and data science, allowing us to deliver tailored solutions to farmers faster than ever before. We’re using the resources at our fingertips to discover the science that’s yet to come. ",
+    image: "",
   },
   {
     title: "Seeds & Traits",
     text: "In a world where bigger tends to mean better, some of the most important building blocks of civilization are often no larger than a few millimeters in size: seeds. These tiny organisms form the foundation of agriculture and hold the keys to delivering the food, fuel and fiber needed to sustain a growing world population. Through traditional and advanced breeding techniques, as well as research in biotechnology, we’re developing seeds and traits that provide farmers with new solutions. By making use of the natural genetic diversity within each crop family, we’re building crops that combat environmental challenges — like pests, disease, and drought — while providing more choice for consumers.",
+    image: "",
   },
 ];
 
@@ -75,6 +78,7 @@ const App = () => {
       <DilutionCalculator data={calculator} />
       <AboutUs />
       <SubscribeForm />
+      <ScrollToTopArrow />
       <Footer />
     </div>
   );
@@ -196,8 +200,8 @@ function HeroSection() {
         </h1>
         <p>
           <strong>
-            Whether you're a seasoned farmer or a gardening enthusiast, we have
-            the tools and supplies you need to cultivate succes.
+            Discover critical insights and latest trends in agriculture to take
+            your farming knowledge to the next level.
           </strong>
         </p>
         <br />
@@ -213,13 +217,18 @@ function Accordion({ data }) {
   return (
     <div id="blog" className="accordion container my-5">
       {data.map((el) => (
-        <AccordionItem title={el.title} text={el.text} key={el.title} />
+        <AccordionItem
+          title={el.title}
+          text={el.text}
+          image={el.image}
+          key={el.title}
+        />
       ))}
     </div>
   );
 }
 
-function AccordionItem({ title, text }) {
+function AccordionItem({ title, text, image }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleToggle() {
@@ -235,8 +244,10 @@ function AccordionItem({ title, text }) {
         <p className="title">{title}</p>
         <p>{isOpen ? "-" : "+"}</p>
       </div>
-
-      {isOpen && <div className="content-box py-3">{text}</div>}
+      <div className="row">
+        {isOpen && <div className="col p-3">{text}</div>}
+        {isOpen && <img className="col p-3" alt={title} src={image}></img>}
+      </div>
     </div>
   );
 }
@@ -425,6 +436,42 @@ function SubscribeForm() {
           </div>
         </div>
       </form>
+    </div>
+  );
+}
+
+function ScrollToTopArrow() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div
+      className={`scroll-to-top-arrow ${isVisible ? "visible" : ""}`}
+      onClick={scrollToTop}
+    >
+      &#8593;
     </div>
   );
 }

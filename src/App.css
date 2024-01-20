@@ -52,10 +52,10 @@ p {
   cursor: pointer;
 }
 
-.content-box {
+/*.content-box {
   grid-column: 2 / -1;
   line-height: 1.6;
-}
+}*/
 
 .open {
   border-top: 4px solid rgb(97, 33, 33);
@@ -66,4 +66,26 @@ p {
     width: 100%;
     display: block;
   }
+}
+
+.scroll-to-top-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(97, 33, 33);
+  color: #fff;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-to-top-arrow.visible {
+  opacity: 1;
 }
