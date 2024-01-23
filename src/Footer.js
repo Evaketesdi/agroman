@@ -7,7 +7,7 @@ export default function Footer() {
         <strong>AGROMAN</strong>
         <p>You can find us in Romania</p>
         <strong>Get connected with us</strong>
-        <p className="lead">2023 Copyright: Agroman</p>
+        <p className="lead">&copy 2023 Copyright: Agroman</p>
         <p className="lead">All rights reserved</p>
       </div>
     </footer>

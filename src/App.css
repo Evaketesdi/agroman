@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 .hero-section {
   background-image: url("/public/herosection-photo.png");
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 50px;
+  height: 80vh;
 }
+
 .text-color {
   color: rgb(97, 33, 33);
 }
@@ -36,11 +42,6 @@ p {
   object-fit: contain;
 }
 
-.accordion {
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
   display: flex;
   flex-direction: row;
@@ -52,6 +53,9 @@ p {
   cursor: pointer;
 }
 
+.accordion-image {
+  max-width: 20%;
+}
 /*.content-box {
   grid-column: 2 / -1;
   line-height: 1.6;
