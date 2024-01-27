@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;
 }
-
+:root {
+  --main-color: rgb(97, 33, 33);
+}
 .hero-section {
   background-image: url("/public/herosection-photo.png");
   background-size: cover;
@@ -12,7 +14,7 @@
 }
 
 .text-color {
-  color: rgb(97, 33, 33);
+  color: var(--main-color);
 }
 
 .hero-content {
@@ -29,10 +31,10 @@ p {
 }
 
 .cta-button {
-  background-color: rgb(97, 33, 33);
+  background-color: var(--main-color);
 }
 .bg-scroll {
-  background-color: rgb(97, 33, 33);
+  background-color: var(--main-color);
   color: white;
 }
 
@@ -54,7 +56,7 @@ p {
 }
 
 .accordion-image {
-  max-width: 20%;
+  max-width: 2 0%;
 }
 /*.content-box {
   grid-column: 2 / -1;
@@ -62,7 +64,7 @@ p {
 }*/
 
 .open {
-  border-top: 4px solid rgb(97, 33, 33);
+  border-top: 4px solid var(--main-color);
 }
 
 @media screen and (max-width: 650px) {
@@ -76,7 +78,7 @@ p {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgb(97, 33, 33);
+  background-color: var(--main-color);
   color: #fff;
   font-size: 20px;
   width: 40px;
