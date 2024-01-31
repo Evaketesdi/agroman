@@ -14,7 +14,7 @@ export const blog = [
   {
     title: "Crop protection",
     text: "Weeds rob plants of water, sunlight and nutrients, while harmful insects and diseases can devastate crops, threating food production. Growers have always relied on a host of tools to fight these ever-present threats that account for up to 30 percent of the world's annual crop loss. Without the use of reliable crop protection solutions, those losses could be much higher – and threaten the stability of the world's food supply.",
-    image: "/images/cereal.jpg",
+    /*image: "/images/cereal.jpg",*/
   },
   {
     title: "Products",

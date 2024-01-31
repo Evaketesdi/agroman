@@ -10,7 +10,7 @@ export default function DilutionCalculator({ data }) {
 
   return (
     <div className="container my-5">
-      <div className="card text-color">
+      <div className="card text-color shadow p-3 mb-5 bg-body rounded">
         <h2 className="card-header">Dilution calculator</h2>
         <p
           onClick={handleToggle}

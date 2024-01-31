@@ -16,8 +16,8 @@ export default function AboutUs() {
 }
 function Team({ team }) {
   return (
-    <div id="about" className="col-lg-4 col-md-6 col-sm-12 mb-4">
-      <div className="card">
+    <div id="about" className="col-lg-4 col-md-6 col-sm-12 mb-4 ">
+      <div className="card shadow p-3 mb-5 bg-body rounded">
         <img className="card-img-top" src={team.image} alt={team.name}></img>
         <div className="card-body text-color">
           <h2 className="card-title">{team.name}</h2>

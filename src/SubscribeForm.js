@@ -5,7 +5,7 @@ export default function SubscribeForm() {
   const [userRating, setUserRating] = useState("");
   return (
     <div id="contact" className="row">
-      <form className="col-lg-5 col-md-8 col-sm-12 text-color text-center container card my-5">
+      <form className="col-lg-5 col-md-8 col-sm-12 text-color text-center container card my-5 shadow p-3 mb-5 bg-body rounded">
         <h4 className="card-body">
           <strong>STAY INFORMED AND INSPIRED - SUBSCRIBE NOW</strong>
         </h4>
