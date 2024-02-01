@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="container m-5 text-color text-center row">
+    <footer className="container m-5 text-color text-center row py-3">
       <div className="col">
         <strong>AGROMAN</strong>
         <p>You can find us in Romania</p>

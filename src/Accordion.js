@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Accordion({ data }) {
   return (
-    <div id="blog" className="accordion container my-5">
+    <div id="blog" className="accordion container my-5 py-3">
       {data.map((el) => (
         <AccordionItem
           title={el.title}

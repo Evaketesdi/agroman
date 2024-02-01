@@ -10,7 +10,7 @@
   background-position: center;
   text-align: center;
   padding: 120px 50px;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 .text-color {
@@ -40,7 +40,7 @@ p {
 
 .card-img-top {
   width: 100%;
-  max-height: 30vw;
+  max-height: 20vw;
   object-fit: contain;
 }
 
@@ -95,3 +95,9 @@ p {
 .scroll-to-top-arrow.visible {
   opacity: 1;
 }
+/*.faq {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+}*/

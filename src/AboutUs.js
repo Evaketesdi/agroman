@@ -6,6 +6,7 @@ export default function AboutUs() {
   return (
     <div className="container text-color my-5">
       <h2>Our Team</h2>
+      <br />
       <div className="row">
         {team.map((team) => (
           <Team team={team} key={team.id} />

@@ -9,6 +9,8 @@ import AboutUs from "./AboutUs";
 import SubscribeForm from "./SubscribeForm";
 import ScrollToTopArrow from "./ScrollToTopArrow";
 import Footer from "./Footer";
+import Faq from "./Faq";
+import Features from "./Features";
 
 export const blog = [
   {
@@ -75,6 +77,46 @@ export const ourTeam = [
   },
 ];
 
+export const faq = [
+  {
+    question: "How to start a farm?",
+    answer:
+      "We offer a comprehensive guide for beginners on how to start and sustain a successful farm.",
+  },
+
+  {
+    question: "Managing pests?",
+    answer:
+      "Explore our integrated pest management tactics that are environmentally sustainable and effective.",
+  },
+  {
+    question: "Best crops to grow?",
+    answer:
+      "This can vary based on your region, but we suggest starting with crops that are in high demand locally.",
+  },
+  {
+    question: "Subscription plans?",
+    answer:
+      "We offer a range of subscription plans to cater to your specific agricultural needs and preferences.",
+  },
+];
+
+export const features = [
+  {
+    title: "Seed Finder",
+    text: "Locate the best seeds for your location and crop needs using our comprehensive search tool.",
+  },
+
+  {
+    title: "Weather Watch",
+    text: "Stay ahead of the weather with our real-time forecasting tool, tailored for the agricultural sector.",
+  },
+  {
+    title: "Crop Calendar",
+    text: "Our crop calendar helps you track planting and harvesting times for optimal yield.",
+  },
+];
+
 const App = () => {
   return (
     <div>
@@ -82,8 +124,10 @@ const App = () => {
       <HeroSection />
       <Accordion data={blog} />
       <DilutionCalculator data={calculator} />
+      <Features data={features} />
       <AboutUs />
       <SubscribeForm />
+      <Faq data={faq} />
       <ScrollToTopArrow />
       <Footer />
     </div>
