@@ -4,6 +4,9 @@
 :root {
   --main-color: rgb(97, 33, 33);
 }
+img {
+  border-radius: 1%;
+}
 .hero-section {
   background-image: url("/public/herosection-photo.png");
   background-size: cover;
