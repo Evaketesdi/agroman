@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Faq({ data }) {
   return (
-    <div className="container my5 text-color py-3">
+    <div className="container mx-auto text-color py-3">
       <h2>FAQ Corner</h2>
       <p>
         Have questions? Get answers. Check out our frequently asked questions
@@ -22,7 +22,7 @@ export default function Faq({ data }) {
 }
 function FaqElement({ question, answer }) {
   return (
-    <div className="col-lg-6 col-md-12 col-sm-12 p-3">
+    <div className="col-lg-6 col-md-12 col-sm-12 p-3 mx-auto">
       <h3>{question}</h3>
       <p>{answer}</p>
     </div>

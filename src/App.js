@@ -10,7 +10,11 @@ import SubscribeForm from "./SubscribeForm";
 import ScrollToTopArrow from "./ScrollToTopArrow";
 import Footer from "./Footer";
 import Faq from "./Faq";
-import Features from "./Features";
+import Features, {
+  SvgComponent1,
+  SvgComponent2,
+  SvgComponent3,
+} from "./Features";
 
 export const blog = [
   {
@@ -70,9 +74,9 @@ export const ourTeam = [
     id: 123458,
     image: "/images/eva.jpg",
     name: "Jane Doe",
-    function: "Customer Service Associate",
+    function: "CSA",
     description:
-      "Contact our customer support if you want to know more about our services.",
+      "Contact our customer support to find out more about our services.",
     email: "jane@example.com",
   },
 ];
@@ -104,16 +108,19 @@ export const faq = [
 export const features = [
   {
     title: "Seed Finder",
-    text: "Locate the best seeds for your location and crop needs using our comprehensive search tool.",
+    text: "Locate the best seeds for your location and needs using our comprehensive search tool.",
+    svg: <SvgComponent1 />,
   },
 
   {
     title: "Weather Watch",
     text: "Stay ahead of the weather with our real-time forecasting tool, tailored for the agricultural sector.",
+    svg: <SvgComponent2 />,
   },
   {
     title: "Crop Calendar",
     text: "Our crop calendar helps you track planting and harvesting times for optimal yield.",
+    svg: <SvgComponent3 />,
   },
 ];
 

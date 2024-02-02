@@ -11,8 +11,8 @@ export default function HeroSection() {
         </h1>
         <p>
           <strong>
-            Discover critical insights and latest trends in agriculture to take
-            your farming knowledge to the next level.
+            Discover the latest agricultural trends, insights, and stories from
+            the heart of the farming community.
           </strong>
         </p>
         <br />
