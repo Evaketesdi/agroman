@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./App";
 
-export const SvgComponent_1 = () => (
+export const Svg1Component = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -14,7 +14,7 @@ export const SvgComponent_1 = () => (
   </svg>
 );
 
-export const SvgComponent_2 = () => (
+export const Svg2Component = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -27,7 +27,7 @@ export const SvgComponent_2 = () => (
   </svg>
 );
 
-export const SvgComponent_3 = () => (
+export const Svg3Component = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"

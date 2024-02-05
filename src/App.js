@@ -15,23 +15,23 @@ import Features, {
   SvgComponent2,
   SvgComponent3,
 } from "./Features";
-import Main, { SvgComponent_1, SvgComponent_2, SvgComponent_3 } from "./Main";
+import Main, { Svg1Component, Svg2Component, Svg3Component } from "./Main";
 
 export const main = [
   {
     title: "Expert Tips",
     text: "Practical farming advice from seasoned professionals to take your agricultural knowledge to the next level.",
-    svg: <SvgComponent_1 />,
+    svg: <Svg1Component />,
   },
   {
     title: "Market Data",
     text: "Up-to-date market analyses and crop prices to help you make informed decisions.",
-    svg: <SvgComponent_2 />,
+    svg: <Svg2Component />,
   },
   {
     title: "Community",
     text: "Connect with farmers worldwide, exchanging stories, strategies, and support.",
-    svg: <SvgComponent_3 />,
+    svg: <Svg3Component />,
   },
 ];
 
