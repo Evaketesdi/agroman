@@ -23,13 +23,13 @@ function AccordionItem({ title, text, image }) {
 
   return (
     <div
-      className={`item ${
+      className={`accordion-item ${
         isOpen ? "open" : ""
-      } text-color card my-3 px-3 shadow p-3 mb-5 bg-body rounded`}
+      } text-color card my-3 px-5 shadow p-3 mb-5 bg-body rounded`}
       onClick={handleToggle}
     >
-      <div className="title py-2">
-        <p className="title">{title}</p>
+      <div className="accordion-title py-2">
+        <h2 className="accordion-title">{title}</h2>
         <p>{isOpen ? "-" : "+"}</p>
       </div>
       <div className="row">

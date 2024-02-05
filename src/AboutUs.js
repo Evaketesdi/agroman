@@ -21,7 +21,7 @@ function Team({ team }) {
       <div className="card shadow p-3 mb-5 bg-body rounded">
         <img className="card-img-top" src={team.image} alt={team.name}></img>
         <div className="card-body text-color">
-          <h2 className="card-title">{team.name}</h2>
+          <h3 className="card-title">{team.name}</h3>
           <p className="card-text">{team.function}</p>
           <p className="card-text">{team.description}</p>
           <p className="card-text">{team.email}</p>

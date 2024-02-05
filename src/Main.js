@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./App";
 
 export const SvgComponent_1 = () => (
   <svg
@@ -60,7 +61,10 @@ export default function Main({ data }) {
               key={el.title}
             />
           ))}
+          <br />
+          <Button>More info</Button>
         </div>
+
         <div className="col m-2">
           <img src="/images/lemons.jpeg" alt="Lemons" className="img-fluid" />
         </div>
@@ -70,7 +74,7 @@ export default function Main({ data }) {
 }
 function MainItem({ title, text, svg }) {
   return (
-    <div className="container row my-3">
+    <div className="container row my-5">
       <div className="col-1">{svg}</div>
       <div className="col">
         <h3>{title}</h3>

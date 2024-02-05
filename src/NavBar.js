@@ -25,7 +25,7 @@ export default function NavBar() {
     };
   }, []);
 
-  const navbarClass = scrolling ? "bg-scroll" : "bg-transparent text-color";
+  const navbarClass = scrolling ? "nav-bg-scroll" : "bg-transparent text-color";
 
   return (
     <nav className={`navbar navbar-expand-md ${navbarClass} fixed-top`}>
@@ -63,7 +63,7 @@ export default function NavBar() {
         </MediaQuery>
       </div>
       <MediaQuery maxWidth={767}>
-        <nav className="bg-scroll">
+        <nav className="nav-bg-scroll">
           <button
             onClick={toggleMobileMenu}
             className="btn btn-dark cta-button"
@@ -73,22 +73,22 @@ export default function NavBar() {
           {isMobileMenuVisible && (
             <ul className="navbar-nav">
               <li className="nav-item ">
-                <a className="nav-link bg-scroll" href="#home">
+                <a className="nav-link nav-bg-scroll" href="#home">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link bg-scroll" href="#blog">
+                <a className="nav-link nav-bg-scroll" href="#blog">
                   Blog
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link bg-scroll" href="#about">
+                <a className="nav-link nav-bg-scroll" href="#about">
                   About
                 </a>
               </li>
               <li className="nav-item">
-                <a href="#contact" className="nav-link bg-scroll">
+                <a href="#contact" className="nav-link nav-bg-scroll">
                   Contact
                 </a>
               </li>

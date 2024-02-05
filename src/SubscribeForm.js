@@ -6,9 +6,9 @@ export default function SubscribeForm() {
   return (
     <div id="contact" className="row">
       <form className="col-lg-5 col-md-8 col-sm-12 text-color text-center container card shadow p-3 mb-5 bg-body rounded">
-        <h4 className="card-body">
+        <h2 className="card-body">
           <strong>STAY INFORMED AND INSPIRED - SUBSCRIBE NOW</strong>
-        </h4>
+        </h2>
         <p className="card-body">
           Our newsletter is a valuable resource for staying informed and
           inspired on your agricultural journey. Don't miss out – subscribe now

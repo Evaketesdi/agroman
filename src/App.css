@@ -1,45 +1,83 @@
 * {
   box-sizing: border-box;
 }
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  color: var(--main-color);
+}
+h1 {
+  font-size: 2.5rem;
+}
 :root {
   --main-color: rgb(97, 33, 33);
 }
 img {
   border-radius: 1%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  float: right;
 }
+.text-color {
+  color: var(--main-color);
+}
+.cta-button {
+  background-color: var(--main-color);
+  font-size: 1.8rem;
+}
+input[placeholder] {
+  font-size: 1.8rem;
+}
+.nav-bg-scroll {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* Hero section styling*/
+
 .hero-section {
   background-image: url("/public/herosection-photo.png");
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 120px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 80vh;
 }
 
-.text-color {
-  color: var(--main-color);
+/*Accordion styling*/
+
+.accordion-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+}
+.accordion-item {
+  cursor: pointer;
+}
+.accordion-image {
+  max-width: 2 0%;
+}
+.open {
+  border-top: 4px solid var(--main-color);
 }
 
-.hero-content {
-  max-width: 600px;
-  margin: 0 auto;
+@media screen and (max-width: 768px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+  img {
+    max-height: 100%;
+  }
 }
-
-h1 {
-  font-size: 2.5em;
-}
-
-p {
-  font-size: 1.2em;
-}
-
-.cta-button {
-  background-color: var(--main-color);
-}
-.bg-scroll {
-  background-color: var(--main-color);
-  color: white;
-}
+/* Our team cards styling */
 
 .card-img-top {
   width: 100%;
@@ -47,35 +85,7 @@ p {
   object-fit: contain;
 }
 
-.title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-weight: 500;
-}
-
-.item {
-  cursor: pointer;
-}
-
-.accordion-image {
-  max-width: 2 0%;
-}
-/*.content-box {
-  grid-column: 2 / -1;
-  line-height: 1.6;
-}*/
-
-.open {
-  border-top: 4px solid var(--main-color);
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
+/* Scroll to top button styling*/
 
 .scroll-to-top-arrow {
   position: fixed;
@@ -98,9 +108,3 @@ p {
 .scroll-to-top-arrow.visible {
   opacity: 1;
 }
-/*.faq {
-  display: flex;
-  flex-direction: column;
-
-  width: 50%;
-}*/
