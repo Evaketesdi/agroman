@@ -162,7 +162,11 @@ const App = () => {
 };
 export function Button({ children, onClick }) {
   return (
-    <button type="button" className="btn btn-dark cta-button" onClick={onClick}>
+    <button
+      type="button"
+      className="btn btn-dark btn-lg cta-button"
+      onClick={onClick}
+    >
       {children}
     </button>
   );

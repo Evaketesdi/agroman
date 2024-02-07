@@ -63,9 +63,9 @@ function CalculatorItem({ title, input1, input2, result }) {
         <div>
           <p>{title}</p>
           <div className="row mx-2 my-3">
-            <label className="col">{input1}</label>
+            <label className="col-lg-6 col-md-12">{input1}</label>
             <input
-              className="col"
+              className="col-lg-6 col-md-12"
               value={value1}
               onChange={(e) => setValue1(e.target.value)}
             />
@@ -73,9 +73,9 @@ function CalculatorItem({ title, input1, input2, result }) {
         </div>
         <div>
           <div className="row mx-2 my-3">
-            <label className="col">{input2}</label>
+            <label className="col-lg-6 col-md-12">{input2}</label>
             <input
-              className="col"
+              className="col-lg-6 col-md-12"
               value={value2}
               onChange={(e) => setValue2(e.target.value)}
             />
