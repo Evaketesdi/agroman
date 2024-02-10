@@ -28,9 +28,9 @@ export default function NavBar() {
   const navbarClass = scrolling ? "nav-bg-scroll" : "bg-transparent text-color";
 
   return (
-    <nav className={`navbar navbar-expand-md ${navbarClass} fixed-top`}>
+    <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
       <div className="container">
-        <MediaQuery minWidth={768}>
+        <MediaQuery minWidth={600}>
           <nav>
             {
               <ul className="navbar-nav">
@@ -62,7 +62,7 @@ export default function NavBar() {
           </div>
         </MediaQuery>
       </div>
-      <MediaQuery maxWidth={767}>
+      <MediaQuery maxWidth={600}>
         <nav className="nav-bg-scroll">
           <button
             onClick={toggleMobileMenu}

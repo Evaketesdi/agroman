@@ -42,7 +42,7 @@ export const Svg3Component = () => (
 
 export default function Main({ data }) {
   return (
-    <div className="container card shadow p-3 mb-5 bg-body rounded text-color my-5 p-5">
+    <div className="container card shadow p-3 mb-5 bg-body rounded text-color my-5 p-5 main">
       <div className="row">
         <div className="container col-lg-6 col-md-12 col-sm-12 p-3 m-2">
           <h2>

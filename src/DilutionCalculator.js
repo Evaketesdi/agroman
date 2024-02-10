@@ -36,38 +36,50 @@ export default function DilutionCalculator({ data }) {
     </div>
   );
 }
+
 function CalculatorItem({ title, input1, input2, result }) {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
   const [resultValue, setResultValue] = useState(null);
+  const [disableCalculate, setDisableCalculate] = useState(true);
 
   function handleCalculate() {
+    console.log("Calculating...");
     if (
-      title ===
-      "1. Know the required amount of product and the recommended concentration of the spraying solution. What amount of water should you use to prepare the spray solution?"
+      isNaN(value1) ||
+      isNaN(value2) ||
+      value1.trim() === "" ||
+      value2.trim() === ""
     ) {
-      const calculatedResult1 = parseFloat(value1) / parseFloat(value2) / 10;
-      setResultValue(calculatedResult1);
-    } else if (
-      title ===
-      "2. Know the amount of solution required (the volume of the spray pump) and the recommended concentration. What amount of product should you use to prepare the spray solution?"
-    ) {
-      const calculatedResult2 = parseFloat(value1) * parseFloat(value2) * 10;
-      setResultValue(calculatedResult2);
+      return;
     }
+    const calculatedResult = parseFloat(value1) * parseFloat(value2);
+    setResultValue(calculatedResult);
   }
 
   return (
-    <form className="col-lg-6 text-color my-3 px-3">
+    <form
+      className="col-lg-6 text-color my-3 px-3"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div className="container">
         <div>
           <p>{title}</p>
           <div className="row mx-2 my-3">
             <label className="col-lg-6 col-md-12">{input1}</label>
             <input
+              required
               className="col-lg-6 col-md-12"
               value={value1}
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => {
+                setValue1(e.target.value);
+                setDisableCalculate(
+                  isNaN(e.target.value) ||
+                    isNaN(value2) ||
+                    e.target.value.trim() === "" ||
+                    value2.trim() === ""
+                );
+              }}
             />
           </div>
         </div>
@@ -75,9 +87,18 @@ function CalculatorItem({ title, input1, input2, result }) {
           <div className="row mx-2 my-3">
             <label className="col-lg-6 col-md-12">{input2}</label>
             <input
+              required
               className="col-lg-6 col-md-12"
               value={value2}
-              onChange={(e) => setValue2(e.target.value)}
+              onChange={(e) => {
+                setValue2(e.target.value);
+                setDisableCalculate(
+                  isNaN(value1) ||
+                    isNaN(e.target.value) ||
+                    value1.trim() === "" ||
+                    e.target.value.trim() === ""
+                );
+              }}
             />
           </div>
           <div className="row">
@@ -92,7 +113,9 @@ function CalculatorItem({ title, input1, input2, result }) {
               </p>
             </div>
             <div className="col mx-2 my-3">
-              <Button onClick={handleCalculate}>Calculate</Button>
+              <Button onClick={handleCalculate} disabled={disableCalculate}>
+                Calculate
+              </Button>
             </div>
           </div>
         </div>

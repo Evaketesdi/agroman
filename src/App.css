@@ -68,22 +68,22 @@ input[placeholder] {
   border-top: 4px solid var(--main-color);
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
   .column {
     width: 100%;
     display: block;
   }
-  img {
-    max-height: 100%;
-  }
-}
+}*/
 /* Our team cards styling */
 
 .card-img-top {
-  width: 100%;
-  max-height: 100%;
+  /*max-width: 100%;
+  max-height: auto;*/
   object-fit: contain;
   border-radius: 1.5%;
+}
+.team-card {
+  min-height: 10rem;
 }
 /*@media (max-width: 768px) {
   .team-card {
