@@ -15,11 +15,9 @@ h1 {
   --main-color: rgb(97, 33, 33);
 }
 img {
+  display: block;
   border-radius: 1%;
-  max-height: 70%;
-  width: auto;
-  height: auto;
-  float: right;
+  max-width: 100%;
 }
 .text-color {
   color: var(--main-color);
@@ -68,12 +66,12 @@ input[placeholder] {
   border-top: 4px solid var(--main-color);
 }
 
-/*@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .column {
     width: 100%;
     display: block;
   }
-}*/
+}
 /* Our team cards styling */
 
 .card-img-top {
@@ -83,7 +81,9 @@ input[placeholder] {
   border-radius: 1.5%;
 }
 .team-card {
-  min-height: 10rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 /*@media (max-width: 768px) {
   .team-card {

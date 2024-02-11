@@ -30,7 +30,7 @@ export default function NavBar() {
   return (
     <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
       <div className="container">
-        <MediaQuery minWidth={600}>
+        <MediaQuery minWidth={1000}>
           <nav>
             {
               <ul className="navbar-nav">
@@ -62,7 +62,7 @@ export default function NavBar() {
           </div>
         </MediaQuery>
       </div>
-      <MediaQuery maxWidth={600}>
+      <MediaQuery maxWidth={1000}>
         <nav className="nav-bg-scroll">
           <button
             onClick={toggleMobileMenu}
