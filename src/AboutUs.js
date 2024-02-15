@@ -4,7 +4,7 @@ import { ourTeam, Button } from "./App";
 export default function AboutUs() {
   const team = ourTeam;
   return (
-    <div className="container text-color">
+    <div className="container my-5 text-color">
       <h2>Our Team</h2>
       <br />
       <div className="team-card">
@@ -44,9 +44,13 @@ function Team({ team }) {
         </div>
       </div>
     </div>*/
-    <div id="about" className="">
+    <div id="about">
       <div className="card shadow p-3 mb-5 bg-bod rounded">
-        <img className="card-img-top" src={team.image} alt={team.name}></img>
+        <img
+          className="card-img-top mx-auto"
+          src={team.image}
+          alt={team.name}
+        ></img>
         <div className="card-body text-color">
           <h3 className="card-title">{team.name}</h3>
           <p className="card-text">{team.function}</p>

@@ -33,10 +33,13 @@ function AccordionItem({ title, text, image }) {
         <p>{isOpen ? "-" : "+"}</p>
       </div>
       <div className="row">
-        {isOpen && <div className="col-lg-6 col-md-12 p-3">{text}</div>}
+        {isOpen && (
+          <div className="col-lg-6 col-md-12 col-sm-12 p-3">{text}</div>
+        )}
         {isOpen && (
           <img
-            className="accordion-image col-lg-6 col-md-12 p-3"
+            id="accordion-image"
+            className="col p-3 mx-auto rounded-1"
             alt={title}
             src={image}
           ></img>

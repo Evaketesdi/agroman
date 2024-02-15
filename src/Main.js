@@ -43,7 +43,7 @@ export const Svg3Component = () => (
 export default function Main({ data }) {
   return (
     <div className="container card shadow p-3 mb-5 bg-body rounded text-color my-5 p-5 main">
-      <div className="row">
+      <div className="row align-items-center">
         <div className="container col-lg-6 col-md-12 col-sm-12 p-3 m-2">
           <h2>
             <strong>Why Agroman?</strong>
@@ -66,7 +66,7 @@ export default function Main({ data }) {
         </div>
 
         <div className="col m-2">
-          <img src="/images/lemons.jpeg" alt="Lemons" className="img-fluid" />
+          <img src="/images/cereals.jpeg" alt="cereals" className="mx-auto" />
         </div>
       </div>
     </div>
