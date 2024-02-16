@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Accordion({ data }) {
   return (
-    <div id="blog" className="accordion container my-5 py-3">
+    <div id="blog" className="container my-5 py-3">
       {data.map((el) => (
         <AccordionItem
           title={el.title}
@@ -39,7 +39,7 @@ function AccordionItem({ title, text, image }) {
         {isOpen && (
           <img
             id="accordion-image"
-            className="col p-3 mx-auto rounded-1"
+            className="col p-3 mx-auto card rounded"
             alt={title}
             src={image}
           ></img>

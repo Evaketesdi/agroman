@@ -44,8 +44,8 @@ function Team({ team }) {
         </div>
       </div>
     </div>*/
-    <div id="about">
-      <div className="card shadow p-3 mb-5 bg-bod rounded">
+    <div id="about" className="row">
+      <div className="card shadow p-3 m-5 bg-bod rounded col">
         <img
           className="card-img-top mx-auto"
           src={team.image}

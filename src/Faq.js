@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Faq({ data }) {
   return (
-    <div className="container mx-auto text-color py-3">
+    <div className="container mx-auto text-color py-3 my-5">
       <h2>FAQ Corner</h2>
       <p>
         Have questions? Get answers. Check out our frequently asked questions

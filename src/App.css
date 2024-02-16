@@ -18,8 +18,10 @@ img {
   display: block;
   border-radius: 1%;
   max-width: 60%;
+  width: 100%;
   height: auto;
 }
+
 .text-color {
   color: var(--main-color);
 }
@@ -64,9 +66,7 @@ input[placeholder] {
   cursor: pointer;
 }
 #accordion-image {
-  display: block;
-  border-radius: 20%;
-  max-width: 25%;
+  max-width: 30%;
   height: auto;
 }
 
@@ -83,22 +83,15 @@ input[placeholder] {
 /* Our team cards styling */
 
 .card-img-top {
-  /*max-width: 100%;
-  max-height: auto;*/
   object-fit: contain;
   border-radius: 1.5%;
+  height: 250px;
 }
 .team-card {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-/*@media (max-width: 768px) {
-  .team-card {
-    display: flex;
-    flex-direction: column;
-  }
-}*/
 /* Scroll to top button styling*/
 
 .scroll-to-top-arrow {
@@ -121,4 +114,9 @@ input[placeholder] {
 
 .scroll-to-top-arrow.visible {
   opacity: 1;
+}
+@media (max-width: 576px) {
+  img {
+    max-width: 100%;
+  }
 }
