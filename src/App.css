@@ -12,7 +12,7 @@ h1 {
   font-size: 2.5rem;
 }
 :root {
-  --main-color: rgb(103, 14, 6);
+  --main-color: rgb(92, 14, 14);
 }
 img {
   display: block;
@@ -54,24 +54,21 @@ input[placeholder] {
   min-height: 80vh;
 }
 
-/*Accordion styling*/
+/*Blog styling*/
 
-.accordion-title {
+.blog-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-weight: 500;
 }
-.accordion-item {
+.blog-item {
   cursor: pointer;
 }
-#accordion-image {
-  max-width: 30%;
-  height: auto;
-}
-
-.open {
-  border-top: 4px solid var(--main-color);
+#blog-image {
+  object-fit: contain;
+  height: 250px;
+  width: auto;
 }
 
 @media screen and (max-width: 768px) {

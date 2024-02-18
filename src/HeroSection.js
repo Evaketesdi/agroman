@@ -18,7 +18,7 @@ export default function HeroSection() {
         </p>
         <br />
         <button type="button" className="btn btn-dark btn-lg cta-button">
-          Request free consultation
+          Request free assessment
         </button>
       </div>
     </div>

@@ -66,7 +66,11 @@ export default function Main({ data }) {
         </div>
 
         <div className="col m-2">
-          <img src="/images/cereals.jpeg" alt="cereals" className="mx-auto" />
+          <img
+            src="/images/apples.jpeg"
+            alt="wheat field"
+            className="mx-auto"
+          />
         </div>
       </div>
     </div>
