@@ -1,28 +1,45 @@
+import { useState } from "react";
+
 export default function Blog({ data }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleToggle() {
+    setIsOpen((isOpen) => !isOpen);
+  }
+
   return (
-    <div id="blog" className="container my-5 py-3">
-      <h2>Blog</h2>
-      <br></br>
-      {data.map((el) => (
-        <BlogItem
-          title={el.title}
-          text={el.text}
-          image={el.image}
-          key={el.title}
-        />
-      ))}
+    <div className="container my-5 py-3">
+      <div
+        id="blog"
+        className="card text-color shadow p-3 mb-5 bg-body rounded container my-5 py-3"
+      >
+        <h2 className="card-header">Blog</h2>
+        <p
+          onClick={handleToggle}
+          className="container p-3"
+          style={{ cursor: "pointer" }}
+        >
+          Read articles 👇
+        </p>
+        {isOpen && (
+          <div className="row">
+            {data.map((el) => (
+              <BlogItem
+                title={el.title}
+                text={el.text}
+                image={el.image}
+                key={el.title}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 function BlogItem({ title, text, image }) {
-  /* const [isOpen, setIsOpen] = useState(false);
-
-  function handleToggle() {
-    setIsOpen((isOpen) => !isOpen);
-  }*/
-
   return (
-    <div className="blog-item text-color card my-3 px-5 shadow p-3 mb-5 bg-body rounded">
+    <div className="blog-item text-color my-3 px-5 shadow p-3 mb-5 bg-body rounded">
       <div className="blog-title py-2">
         <h2 className="blog-title">{title}</h2>
       </div>

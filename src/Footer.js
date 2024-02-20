@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="container m-5 text-color text-center row py-3">
-      <div className="col">
+    <footer className="my-5 text-color">
+      <div className="container">
         <strong>AGROMAN</strong>
         <p>You can find us in Romania</p>
         <strong>Get connected with us</strong>
