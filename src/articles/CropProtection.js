@@ -3,7 +3,7 @@ import React from "react";
 export default function CropProtection() {
   return (
     <article className="container">
-      <img src="/images/colorado.png" alt="colorado"></img>
+      <img src="/images/colorado.png" alt="colorado" className="mx-auto"></img>
       <br></br>
       <h2>Best Practices for Pest Management in Organic Farm Production</h2>
       <br></br>
