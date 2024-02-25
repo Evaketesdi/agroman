@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./App";
+import { Button } from "./MainApp";
 
 export const Svg1Component = () => (
   <svg
@@ -7,7 +7,7 @@ export const Svg1Component = () => (
     width="16"
     height="16"
     fill="currentColor"
-    class="bi bi-suitcase-lg-fill"
+    className="bi bi-suitcase-lg-fill"
     viewBox="0 0 16 16"
   >
     <path d="M7 0a2 2 0 0 0-2 2H1.5A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14H2a.5.5 0 0 0 1 0h10a.5.5 0 0 0 1 0h.5a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2H11a2 2 0 0 0-2-2zM6 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zM3 13V3h1v10zm9 0V3h1v10z" />
@@ -20,7 +20,7 @@ export const Svg2Component = () => (
     width="16"
     height="16"
     fill="currentColor"
-    class="bi bi-envelope-fill"
+    className="bi bi-envelope-fill"
     viewBox="0 0 16 16"
   >
     <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
@@ -33,7 +33,7 @@ export const Svg3Component = () => (
     width="16"
     height="16"
     fill="currentColor"
-    class="bi bi-bell-fill"
+    className="bi bi-bell-fill"
     viewBox="0 0 16 16"
   >
     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Blog({ data }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,7 @@ export default function Blog({ data }) {
                 text={el.text}
                 image={el.image}
                 key={el.title}
+                path={el.path}
               />
             ))}
           </div>
@@ -37,7 +39,7 @@ export default function Blog({ data }) {
     </div>
   );
 }
-function BlogItem({ title, text, image }) {
+function BlogItem({ title, text, image, path }) {
   return (
     <div className="blog-item text-color my-3 px-5 shadow p-3 mb-5 bg-body rounded">
       <div className="blog-title py-2">
@@ -46,9 +48,13 @@ function BlogItem({ title, text, image }) {
       <div className="row">
         <div className="col-lg-6 col-md-12 col-sm-12 p-3">
           <div>{text}</div>
-          <button className="btn btn-lg btn-outline-dark my-5 text-color">
+          <br></br>
+          <Link
+            to={path}
+            className="btn btn-lg btn-outline-dark my-5 text-color"
+          >
             Read more
-          </button>
+          </Link>
         </div>
         <img
           id="blog-image"

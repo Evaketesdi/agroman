@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "./App";
+import { Button } from "./MainApp";
 
 export default function DilutionCalculator({ data }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import { ourTeam, Button } from "./App";
+import { ourTeam, Button } from "./MainApp";
 
 export default function AboutUs() {
   const team = ourTeam;
