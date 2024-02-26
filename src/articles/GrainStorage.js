@@ -7,7 +7,11 @@ export default function GrainStorage() {
     <>
       <NavBar />
       <article className="container">
-        <img src="/images/grain.png" alt="grain" className="mx-auto"></img>
+        <img
+          src="/images/grain.png"
+          alt="grain"
+          className="mx-auto my-5 py-5"
+        ></img>
         <br></br>
         <h2>Farm Practices That Will Take Grain Storage to a New Level</h2>
         <br></br>

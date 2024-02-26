@@ -7,7 +7,11 @@ export default function HealthySoil() {
     <>
       <NavBar />
       <article className="container">
-        <img src="/images/soil.png" alt="soil" className="mx-auto"></img>
+        <img
+          src="/images/soil.png"
+          alt="soil"
+          className="mx-auto my-5 py-5"
+        ></img>
         <br></br>
         <h2>Ensure Better Soil Performance by Keeping Your Soil Healthy</h2>
         <br></br>
