@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MediaQuery from "react-responsive";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
@@ -35,24 +36,9 @@ export default function NavBar() {
             {
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className={`nav-link ${navbarClass}`} href="#home">
+                  <Link to="/" className={`nav-link ${navbarClass}`}>
                     Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className={`nav-link ${navbarClass}`} href="#blog">
-                    Blog
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className={`nav-link ${navbarClass}`} href="#about">
-                    About
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#contact" className={`nav-link ${navbarClass}`}>
-                    Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             }
@@ -73,24 +59,7 @@ export default function NavBar() {
           {isMobileMenuVisible && (
             <ul className="navbar-nav">
               <li className="nav-item ">
-                <a className="nav-link nav-bg-scroll" href="#home">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link nav-bg-scroll" href="#blog">
-                  Blog
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link nav-bg-scroll" href="#about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#contact" className="nav-link nav-bg-scroll">
-                  Contact
-                </a>
+                <Link className="nav-link nav-bg-scroll">Home</Link>
               </li>
             </ul>
           )}

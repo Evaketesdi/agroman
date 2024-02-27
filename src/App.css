@@ -29,9 +29,6 @@ img {
   background-color: var(--main-color);
   font-size: 1.8rem;
 }
-.btn:hover {
-  background-color: rgb(88, 88, 2);
-}
 input[placeholder] {
   font-size: 1.8rem;
 }
