@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import MediaQuery from "react-responsive";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
+
+  const location = useLocation();
+
+  const isHomePage = () => {
+    return location.pathname === "/";
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuVisibility((prevVisibility) => !prevVisibility);
@@ -31,40 +37,51 @@ export default function NavBar() {
   return (
     <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
       <div className="container">
-        <MediaQuery minWidth={1000}>
-          <nav>
-            {
-              <ul className="navbar-nav">
-                <li className="nav-item">
+        <nav>
+          {
+            <ul className="navbar-nav">
+              {isHomePage() ? (
+                <>
+                  <li className="nav-item">
+                    <a className={`nav-link ${navbarClass}`} href="#home">
+                      Home
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className={`nav-link ${navbarClass}`} href="#about">
+                      About
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <>
                   <Link to="/" className={`nav-link ${navbarClass}`}>
                     Home
                   </Link>
-                </li>
-              </ul>
-            }
-          </nav>
-          <div className="nav-item">
-            <strong>AGROMAN</strong>
-          </div>
-        </MediaQuery>
-      </div>
-      <MediaQuery maxWidth={1000}>
-        <nav className="nav-bg-scroll">
-          <button
-            onClick={toggleMobileMenu}
-            className="btn btn-dark cta-button"
-          >
-            Menu
-          </button>
-          {isMobileMenuVisible && (
-            <ul className="navbar-nav">
-              <li className="nav-item ">
-                <Link className="nav-link nav-bg-scroll">Home</Link>
-              </li>
+                  <Link to="/" className={`nav-link ${navbarClass}`}>
+                    About
+                  </Link>
+                </>
+              )}
             </ul>
-          )}
+          }
         </nav>
-      </MediaQuery>
+        <div className="nav-item">
+          <strong>AGROMAN</strong>
+        </div>
+      </div>
+      <nav className="nav-bg-scroll">
+        <button onClick={toggleMobileMenu} className="btn btn-dark cta-button">
+          Menu
+        </button>
+        {isMobileMenuVisible && (
+          <ul className="navbar-nav">
+            <li className="nav-item ">
+              <Link className="nav-link nav-bg-scroll">Home</Link>
+            </li>
+          </ul>
+        )}
+      </nav>
     </nav>
   );
 }
