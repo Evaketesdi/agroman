@@ -66,11 +66,11 @@ export default function NavBar() {
             </ul>
           }
         </nav>
-        <div className="nav-item">
+        <div id="logo" className="nav-item">
           <strong>AGROMAN</strong>
         </div>
       </div>
-      <nav className="nav-bg-scroll">
+      {/*<nav className="nav-bg-scroll">
         <button onClick={toggleMobileMenu} className="btn btn-dark cta-button">
           Menu
         </button>
@@ -81,7 +81,7 @@ export default function NavBar() {
             </li>
           </ul>
         )}
-      </nav>
+        </nav>*/}
     </nav>
   );
 }

@@ -72,6 +72,9 @@ input[placeholder] {
     width: 100%;
     display: block;
   }
+  #logo {
+    display: none;
+  }
 }
 /* Our team cards styling */
 
