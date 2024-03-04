@@ -22,7 +22,7 @@ export default function Faq({ data }) {
 }
 function FaqElement({ question, answer }) {
   return (
-    <div className="col-lg-6 col-md-12 col-sm-12 p-3 mx-auto">
+    <div className="col-lg-6 col-md-12 col-sm-12 p-5 mx-auto">
       <h3>{question}</h3>
       <p>{answer}</p>
     </div>

@@ -8,7 +8,6 @@ import SubscribeForm from "./SubscribeForm";
 import Faq from "./Faq";
 import ScrollToTopArrow from "./ScrollToTopArrow";
 import Footer from "./Footer";
-import Counter from "./Counter";
 import Features, {
   SvgComponent1,
   SvgComponent2,
@@ -209,7 +208,6 @@ export default function MainApp() {
       <DilutionCalculator data={calculator} />
       <Features data={features} />
       <AboutUs />
-      <Counter />
       <SubscribeForm />
       <Faq data={faq} />
       <ScrollToTopArrow />
