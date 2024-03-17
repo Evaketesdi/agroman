@@ -86,8 +86,21 @@ input[placeholder] {
 .team-card {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+@media (width > calc(200px * 3)) {
+  .team-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* footer styling*/
+
+/*#footer {
+  min-width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
 /* Scroll to top button styling*/
 
 .scroll-to-top-arrow {
