@@ -17,9 +17,13 @@ export default function HeroSection() {
           </strong>
         </p>
         <br />
-        <button type="button" className="btn btn-dark btn-lg cta-button">
-          Request free assessment
-        </button>
+        <a
+          type="button"
+          className="btn btn-dark btn-lg cta-button px-5"
+          href="#about"
+        >
+          BOOK A MEETING
+        </a>
       </div>
     </div>
   );

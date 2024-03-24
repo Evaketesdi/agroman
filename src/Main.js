@@ -62,7 +62,12 @@ export default function Main({ data }) {
             />
           ))}
           <br />
-          <Button>More info</Button>
+          <a
+            className="btn btn-lg btn-outline-dark my-5 text-color"
+            href="#contact"
+          >
+            Subscribe
+          </a>
         </div>
 
         <div className="col m-2">

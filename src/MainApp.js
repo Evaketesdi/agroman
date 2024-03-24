@@ -206,7 +206,6 @@ export default function MainApp() {
       <Main data={main} />
       <Blog data={blog} />
       <DilutionCalculator data={calculator} />
-      <Features data={features} />
       <AboutUs />
       <SubscribeForm />
       <Faq data={faq} />

@@ -4,8 +4,24 @@ import { ourTeam, Button } from "./MainApp";
 export default function AboutUs() {
   const team = ourTeam;
   return (
-    <div className="container my-5 text-color">
-      <h2>Our Team</h2>
+    <div id="about" className="container my-5 text-color">
+      <h2>About us</h2>
+      <br></br>
+      <p>
+        AGROMAN was born in 2013 with a grand yet simple vision – to solve the
+        global food problem by changing the way food is produced and positively
+        impact over a million people.
+      </p>
+      <br></br>
+      <p>
+        Farmers are the heroes who produce the food we eat. Pressured by many
+        challenges and risks, from climate, pests, market prices – farmers have
+        a hard time achieving profitability and secure decent livelihoods for
+        their families. One billion people work in agriculture, improving their
+        livelihood is our major goal.
+      </p>
+      <br></br>
+      <h3>Our Team</h3>
       <br />
       <div className="team-card">
         {team.map((team) => (
@@ -44,7 +60,7 @@ function Team({ team }) {
         </div>
       </div>
     </div>*/
-    <div id="about" className="row">
+    <div className="row">
       <div className="card shadow p-3 m-5 bg-bod rounded col">
         <img
           className="card-img-top mx-auto"

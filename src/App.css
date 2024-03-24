@@ -100,7 +100,10 @@ input[placeholder] {
   margin-left: auto;
   margin-right: auto;
 }*/
-
+a {
+  text-decoration: none;
+  color: var(--main-color);
+}
 /* Scroll to top button styling*/
 
 .scroll-to-top-arrow {

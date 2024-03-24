@@ -47,9 +47,19 @@ export default function NavBar() {
                       Home
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mx-4">
                     <a className={`nav-link ${navbarClass}`} href="#about">
                       About
+                    </a>
+                  </li>
+                  <li className="nav-item mx-4">
+                    <a className={`nav-link ${navbarClass}`} href="#blog">
+                      Blog
+                    </a>
+                  </li>
+                  <li className="nav-item mx-4">
+                    <a className={`nav-link ${navbarClass}`} href="#calculator">
+                      Dilution Calculator
                     </a>
                   </li>
                 </>
@@ -58,8 +68,14 @@ export default function NavBar() {
                   <Link to="/" className={`nav-link ${navbarClass}`}>
                     Home
                   </Link>
-                  <Link to="/" className={`nav-link ${navbarClass}`}>
+                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
                     About
+                  </Link>
+                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
+                    Blog
+                  </Link>
+                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
+                    Dilution Calculator
                   </Link>
                 </>
               )}
