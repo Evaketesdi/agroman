@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function WildAnimals() {
   return (
@@ -58,6 +59,7 @@ export default function WildAnimals() {
           protection that repels animals without harming them.
         </p>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );

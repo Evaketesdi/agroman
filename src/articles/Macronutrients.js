@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function Macronutrients() {
   return (
@@ -62,6 +63,7 @@ export default function Macronutrients() {
           those crops become the food on our tables.
         </p>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );

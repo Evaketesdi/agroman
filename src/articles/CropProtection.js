@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function CropProtection() {
   return (
@@ -85,6 +86,7 @@ export default function CropProtection() {
           </li>
         </ul>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );

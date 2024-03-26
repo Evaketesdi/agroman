@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function HealthySoil() {
   return (
@@ -94,6 +95,7 @@ export default function HealthySoil() {
         </ul>
       </article>
       <Footer />
+      <ScrollToTopArrow />
     </>
   );
 }

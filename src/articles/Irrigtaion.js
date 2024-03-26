@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function Irrigation() {
   return (
@@ -49,6 +50,7 @@ export default function Irrigation() {
         </p>
       </article>
       <Footer />
+      <ScrollToTopArrow />
     </>
   );
 }

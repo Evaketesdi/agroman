@@ -13,11 +13,28 @@ import WildAnimals from "./articles/WildAnimals";
 import Farm from "./articles/Farm";
 import Pests from "./articles/Pests";
 import Macronutrients from "./articles/Macronutrients";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from "react";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainApp />} />
         <Route path="/CropProtection" element={<CropProtection />} />

@@ -34,6 +34,17 @@ export default function NavBar() {
 
   const navbarClass = scrolling ? "nav-bg-scroll" : "bg-transparent text-color";
 
+  const scrollToTarget = (id, e) => {
+    e.preventDefault();
+    const navbarHeight = document.querySelector(".navbar").offsetHeight;
+    const element = document.getElementById(id);
+    const offsetTop = element.offsetTop - navbarHeight;
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
       <div className="container">
@@ -43,22 +54,38 @@ export default function NavBar() {
               {isHomePage() ? (
                 <>
                   <li className="nav-item">
-                    <a className={`nav-link ${navbarClass}`} href="#home">
+                    <a
+                      className={`nav-link ${navbarClass}`}
+                      href="#home"
+                      onClick={(e) => scrollToTarget("home", e)}
+                    >
                       Home
                     </a>
                   </li>
                   <li className="nav-item mx-4">
-                    <a className={`nav-link ${navbarClass}`} href="#about">
+                    <a
+                      className={`nav-link ${navbarClass}`}
+                      href="#about"
+                      onClick={(e) => scrollToTarget("about", e)}
+                    >
                       About
                     </a>
                   </li>
                   <li className="nav-item mx-4">
-                    <a className={`nav-link ${navbarClass}`} href="#blog">
+                    <a
+                      className={`nav-link ${navbarClass}`}
+                      href="#blog"
+                      onClick={(e) => scrollToTarget("blog", e)}
+                    >
                       Blog
                     </a>
                   </li>
                   <li className="nav-item mx-4">
-                    <a className={`nav-link ${navbarClass}`} href="#calculator">
+                    <a
+                      className={`nav-link ${navbarClass}`}
+                      href="#calculator"
+                      onClick={(e) => scrollToTarget("calculator", e)}
+                    >
                       Dilution Calculator
                     </a>
                   </li>

@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function SprinklerIrrigation() {
   return (
@@ -56,6 +57,7 @@ export default function SprinklerIrrigation() {
           terminology for the same irrigation system.
         </p>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function GrainStorage() {
   return (
@@ -114,6 +115,7 @@ export default function GrainStorage() {
           carefully manage each storage practice.
         </p>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import ScrollToTopArrow from "../ScrollToTopArrow";
 
 export default function Farm() {
   return (
@@ -55,6 +56,7 @@ export default function Farm() {
           and the powerful analysis of the entire farm production.
         </p>
       </article>
+      <ScrollToTopArrow />
       <Footer />
     </>
   );
