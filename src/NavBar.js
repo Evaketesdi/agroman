@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import MediaQuery from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
-
   const location = useLocation();
 
   const isHomePage = () => {
@@ -46,85 +45,73 @@ export default function NavBar() {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg ${navbarClass} fixed-top`}>
-      <div className="container">
-        <nav>
-          {
-            <ul className="navbar-nav">
-              {isHomePage() ? (
-                <>
-                  <li className="nav-item">
-                    <a
-                      className={`nav-link ${navbarClass}`}
-                      href="#home"
-                      onClick={(e) => scrollToTarget("home", e)}
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li className="nav-item mx-4">
-                    <a
-                      className={`nav-link ${navbarClass}`}
-                      href="#about"
-                      onClick={(e) => scrollToTarget("about", e)}
-                    >
-                      About
-                    </a>
-                  </li>
-                  <li className="nav-item mx-4">
-                    <a
-                      className={`nav-link ${navbarClass}`}
-                      href="#blog"
-                      onClick={(e) => scrollToTarget("blog", e)}
-                    >
-                      Blog
-                    </a>
-                  </li>
-                  <li className="nav-item mx-4">
-                    <a
-                      className={`nav-link ${navbarClass}`}
-                      href="#calculator"
-                      onClick={(e) => scrollToTarget("calculator", e)}
-                    >
-                      Dilution Calculator
-                    </a>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <Link to="/" className={`nav-link ${navbarClass}`}>
-                    Home
-                  </Link>
-                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
-                    About
-                  </Link>
-                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
-                    Blog
-                  </Link>
-                  <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
-                    Dilution Calculator
-                  </Link>
-                </>
-              )}
-            </ul>
-          }
-        </nav>
-        <div id="logo" className="nav-item">
-          <strong>AGROMAN</strong>
-        </div>
-      </div>
-      {/*<nav className="nav-bg-scroll">
-        <button onClick={toggleMobileMenu} className="btn btn-dark cta-button">
-          Menu
-        </button>
-        {isMobileMenuVisible && (
-          <ul className="navbar-nav">
-            <li className="nav-item ">
-              <Link className="nav-link nav-bg-scroll">Home</Link>
-            </li>
-          </ul>
-        )}
-        </nav>*/}
-    </nav>
+    <Navbar
+      expand="lg"
+      variant="light"
+      bg={scrolling ? "light" : "transparent"}
+      className={`fixed-top ${navbarClass}`}
+    >
+      <Container>
+        <Navbar.Brand className="text-color">AGROMAN</Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          onClick={toggleMobileMenu}
+        />
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className={isMobileMenuVisible ? "show" : ""}
+        >
+          <Nav className="ms-auto">
+            {isHomePage() ? (
+              <>
+                <Nav.Link
+                  href="#home"
+                  onClick={(e) => scrollToTarget("home", e)}
+                  className="text-color mx-4"
+                >
+                  Home
+                </Nav.Link>
+                <Nav.Link
+                  href="#about"
+                  onClick={(e) => scrollToTarget("about", e)}
+                  className="text-color mx-4"
+                >
+                  About
+                </Nav.Link>
+                <Nav.Link
+                  href="#blog"
+                  onClick={(e) => scrollToTarget("blog", e)}
+                  className="text-color mx-4"
+                >
+                  Blog
+                </Nav.Link>
+                <Nav.Link
+                  href="#calculator"
+                  onClick={(e) => scrollToTarget("calculator", e)}
+                  className="text-color ms-4"
+                >
+                  Dilution Calculator
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Link to="/" className={`nav-link ${navbarClass}`}>
+                  Home
+                </Link>
+                <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
+                  About
+                </Link>
+                <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
+                  Blog
+                </Link>
+                <Link to="/" className={`nav-link mx-4 ${navbarClass}`}>
+                  Dilution Calculator
+                </Link>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }

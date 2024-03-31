@@ -93,13 +93,7 @@ input[placeholder] {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-/* footer styling*/
 
-/*#footer {
-  min-width: 25%;
-  margin-left: auto;
-  margin-right: auto;
-}*/
 a {
   text-decoration: none;
   color: var(--main-color);
