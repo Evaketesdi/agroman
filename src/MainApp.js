@@ -8,11 +8,7 @@ import SubscribeForm from "./SubscribeForm";
 import Faq from "./Faq";
 import ScrollToTopArrow from "./ScrollToTopArrow";
 import Footer from "./Footer";
-import Features, {
-  SvgComponent1,
-  SvgComponent2,
-  SvgComponent3,
-} from "./Features";
+import { SvgComponent1, SvgComponent2, SvgComponent3 } from "./Features";
 import Main, { Svg1Component, Svg2Component, Svg3Component } from "./Main";
 
 export const main = [

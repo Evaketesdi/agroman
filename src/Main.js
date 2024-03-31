@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "./MainApp";
 
 export const Svg1Component = () => (
   <svg
